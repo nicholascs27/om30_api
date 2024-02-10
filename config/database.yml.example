@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  username: postgres
+  password: <%= Figaro.env.postgres_user %>
+  host: <%= Figaro.env.postgres_host %>
+
+development:
+  <<: *default
+  database: om30_api_development
+
+test:
+  <<: *default
+  database: om30_api_test
+
+production:
+  <<: *default
+  database: om30_api_production
+  username: om30_api
+  password: <%= ENV["OM30_API_DATABASE_PASSWORD"] %>

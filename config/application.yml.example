@@ -1,0 +1,5 @@
+postgres_user: "123123"
+postgres_host: "localhost"
+email_server: "smtp.gmail.com"
+email_name: "OM30 <naoresponda.om30@om30.com.br>"
+email_username: "naoresponda.om30@om30.com.br"
