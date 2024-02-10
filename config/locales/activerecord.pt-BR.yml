@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    attributes:
+      municipe:
+        invalid_cpf: "CPF inválido"
+        invalid_cns: "deve ter 15 dígitos numéricos"
+        invalid_birth_date: "deve ser uma data válida"
+        cant_be_in_the_future: "não pode ser no futuro"
+    errors:
+      models:
+        municipe_address:
+          attributes:
+            municipe:
+              required: "não pode ficar em branco"
