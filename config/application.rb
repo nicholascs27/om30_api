@@ -10,18 +10,23 @@ module Om30Api
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.time_zone = "America/Fortaleza"
 
-    # Configuration for the application, engines, and railties goes here.
-    #
-    # These settings can be overridden in specific environments using the files
-    # in config/environments, which are processed later.
-    #
-    # config.time_zone = "Central Time (US & Canada)"
-    # config.eager_load_paths << Rails.root.join("extras")
+    config.i18n.default_locale = :"pt-BR"
+    config.i18n.available_locales = %w(pt-BR)
+    I18n.enforce_available_locales = false
 
-    # Only loads a smaller set of middleware suitable for API only apps.
-    # Middleware like session, flash, cookies can be added back manually.
-    # Skip views, helpers and assets when generating a new resource.
+    config.action_mailer.default_url_options = { host: Figaro.env.email_server.to_s }
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address: Figaro.env.email_server.to_s,
+      port: 587,
+      user_name: Figaro.env.email_username.to_s,
+      password: Figaro.env.email_password.to_s,
+      authentication: :plain,
+      enable_starttls_auto: true
+    }
+
     config.api_only = true
   end
 end
