@@ -21,19 +21,8 @@ module API
         end
 
         desc 'create a municipe'
-        params do
-          requires :municipe, type: Hash do
-            requires :full_name, type: String
-            requires :email, type: String
-            requires :telephone, type: String
-            requires :cpf, type: String
-            requires :cns, type: String
-            requires :birth_date, type: Date
-            requires :municipe_addresses_attributes, type: Array
-          end
-        end
         post '/', serializer: ::MunicipeSerializer do
-          municipe ||= ::MunicipeCreateService.new(permitted_params).create_municipe_service
+          municipe ||= ::MunicipeCreateService.new(params).create_municipe_service
           if municipe.is_a?(::Municipe)
             present municipe
           else

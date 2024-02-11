@@ -15,6 +15,7 @@ class MunicipeCreateService
   private
 
   def create_municipe
+    byebug
     ::Municipe.create(@params[:municipe])
   end
 end
