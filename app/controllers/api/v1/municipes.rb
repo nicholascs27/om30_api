@@ -20,6 +20,14 @@ module API
           present @municipe
         end
 
+        desc "return a municipe"
+        params do
+          optional :q, type: Hash
+        end
+        get '/', each_serializer: ::MunicipeSerializer do
+          present ::Municipe.ransack(permitted_params[:q]).result
+        end
+
         desc 'create a municipe'
         post '/', serializer: ::MunicipeSerializer do
           municipe ||= ::MunicipeCreateService.new(params).create_municipe_service
