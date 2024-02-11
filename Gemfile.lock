@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: 4a6f9b93adb860c038b6be0c6d5972cb51ea1e70
+  specs:
+    ransack (4.1.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
+
+GIT
   remote: https://github.com/carrierwaveuploader/carrierwave.git
   revision: 8b33235a0d5c0f06c429b8512529e99250e3aa2c
   branch: master
@@ -363,6 +372,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   rails (~> 7.0.8)
+  ransack!
   rspec-rails
   rubocop
   selenium-webdriver

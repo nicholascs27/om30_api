@@ -38,7 +38,6 @@ module API
           end
         end
         post '/:id', serializer: ::MunicipeAddressSerializer do
-          byebug
           set_municipe
           municipe_address ||= ::MunicipeAddressCreateService.new(@municipe, params[:municipe_address].merge(municipe: @municipe)).create_municipe_address_service
           if municipe_address.is_a?(::MunicipeAddress)
