@@ -14,6 +14,7 @@ RSpec.describe Municipe, type: :model do
     it { should validate_presence_of(:telephone) }
     it { should validate_presence_of(:cpf) }
     it { should validate_presence_of(:cns) }
+    it { should validate_presence_of(:photo) }
 
     it { should allow_value('om30@om30.com').for(:email) }
     it { should_not allow_value('om30.com').for(:email) }

@@ -7,6 +7,7 @@ gem "rails", "~> 7.0.8"
 
 gem "bootsnap", require: false
 
+gem 'carrierwave', git: 'https://github.com/carrierwaveuploader/carrierwave.git', branch: 'master'
 gem 'cpf_cnpj'
 
 gem 'figaro'

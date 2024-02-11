@@ -9,6 +9,7 @@ module MunicipeValidations
 
     validates :full_name, :cpf, :cns, presence: true
     validates :email, :birth_date, :telephone, presence: true
+    validates :photo, presence: true
 
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
@@ -17,6 +18,7 @@ module MunicipeValidations
     validate  :validate_birth_date
 
     before_create :set_status
+    before_destroy :remove_photo
   end
 
   private
@@ -54,6 +56,10 @@ module MunicipeValidations
 
     def set_status
       self.status = true
+    end
+
+    def remove_photo
+      photo.remove! if photo.present?
     end
   end
 end
