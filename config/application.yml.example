@@ -4,3 +4,7 @@ postgres_host: "localhost"
 email_server: "smtp.gmail.com"
 email_name: "OM30 <naoresponda.om30@om30.com.br>"
 email_username: "naoresponda.om30@om30.com.br"
+email_password: "password"
+twilio_phone_number: 'twillio_number'
+twilio_account_sid: 'twillio_sid'
+twilio_auth_token: 'twillio_auth_token'
