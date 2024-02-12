@@ -20,12 +20,13 @@ module API
           present @municipe
         end
 
-        desc "return a municipe"
+        desc "return municipes"
         params do
           optional :q, type: Hash
         end
-        get '/', each_serializer: ::MunicipeSerializer do
-          present ::Municipe.ransack(permitted_params[:q]).result
+        # desc 'Retorna todos os municipes'
+        get do
+          ::Municipe.all
         end
 
         desc 'create a municipe'
@@ -41,16 +42,26 @@ module API
         desc "edit to municipe"
         params do
           requires :id, type: Integer
-          requires :municipe, type: Hash do
-            requires :full_name, type: String
-            requires :email, type: String
-            requires :telephone, type: String
-            requires :birth_date, type: Date
-          end
         end
         put '/:id', serializer: ::MunicipeSerializer do
           set_municipe
-          municipe = ::MunicipeEditService.new(@municipe, permitted_params[:municipe]).edit_municipe_service
+          municipe = ::MunicipeEditService.new(@municipe, params).edit_municipe_service
+
+          if municipe.is_a?(::Municipe)
+            present municipe
+          else
+            error!(municipe[:errors], :bad_request)
+          end
+        end
+
+        desc "edit to municipe"
+        params do
+          requires :id, type: Integer
+          requires :status, type: Boolean
+        end
+        patch ':id/update_status', serializer: ::MunicipeSerializer do
+          set_municipe
+          municipe = MunicipeUpdateStatusService.new(@municipe, permitted_params[:status]).call
 
           if municipe.is_a?(::Municipe)
             present municipe

@@ -17,11 +17,16 @@ gem 'grape_on_rails_routes'
 gem 'grape-active_model_serializers'
 gem 'grape-papertrail'
 
+gem 'mina', github: 'mina-deploy/mina'
+gem 'mina-multistage', require: false
+gem 'mina-whenever'
+
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 
 gem 'ransack', github: 'activerecord-hackery/ransack'
 
+gem 'twilio-ruby', '~> 5.31.1'
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 group :development, :test do
