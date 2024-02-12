@@ -1,0 +1,8 @@
+pt-BR:
+  twillio:
+    message:
+      create: "Você foi cadastrado com sucesso na OM30"
+      update: "Seu cadastro foi atualizado com sucesso na OM30"
+      status_update: "Você foi %{status} no seu cadastro na OM30"
+      disabled: "desativado"
+      enabled: "ativado"

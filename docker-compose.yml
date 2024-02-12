@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    network_mode: bridge
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    environment:
+      RAILS_ENV: development
+
+      DATABASE_URL: postgres://postgres:123123@127.0.0.1:5432/om30_api_development?sslmode=disable
+
+  db:
+    image: postgres:latest
+    network_mode: bridge
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: '123123'
+      POSTGRES_DB: om30_api_development
+    ports:
+      - "5433:5432"

@@ -8,7 +8,7 @@ module MunicipeValidations
     validates :cns, length: { is: 15, allow_nil: true }
 
     validates :full_name, :cpf, :cns, presence: true
-    validates :email, :birth_date, :telephone, presence: true
+    validates :email, :birth_date, :telephone, :ddi, presence: true
     validates :photo, presence: true
 
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }

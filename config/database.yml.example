@@ -3,8 +3,8 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  username: postgres
-  password: <%= Figaro.env.postgres_user %>
+  username: <%= Figaro.env.postgres_user %>
+  password: <%= Figaro.env.postgres_password %>
   host: <%= Figaro.env.postgres_host %>
 
 development:
