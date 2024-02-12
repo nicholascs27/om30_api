@@ -35,5 +35,3 @@ EXPOSE 3000
 
 # Comando para iniciar o servidor Rails quando o contêiner for executado
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0:3000"]
-
-#docker build -t gitlab.pgm.fortaleza.ce.gov.br:5005/dev/epgm .
